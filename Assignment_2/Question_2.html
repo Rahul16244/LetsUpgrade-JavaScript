@@ -1,0 +1,37 @@
+<html>
+ <head>
+<title>Assignment_2</title>
+</head>
+ <style>
+   input{
+     text-align: center;
+     height: 30px;
+     width: 200px;
+     border: solid 4px;
+   }  
+   form{
+     padding-top: 30%;
+     padding-left: 30%;
+   }
+ </style>
+ <body> 
+<h1>Creat a webpage containing two input fields and a button</h1>
+<p> A.  Write something in the first input.<br>
+B.  Onclick of the button, the content of input one should be copied in the second input.<br></p>
+  <div> 
+   <form> 
+    <input  type="text" placeholder="name" class="firstInput"> 
+    <br><br><br><input type="text" class="firstInput"> 
+    <br> <br><br>
+    <button onClick="copyText()">Click Copy</button> 
+   </form> 
+  </div> 
+  <script>
+function copyText(){ 
+let text = document.getElementsByClassName("firstInput");
+//console.log(text);
+text[1].value= text[0].value;
+}
+</script> 
+ </body>
+</html>

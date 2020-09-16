@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Image Change</title> 
+ </head> 
+ <body> 
+  <h1>Create a webpage containing an image and three buttons</h1>
+  <br> A. Onclick of the second button a change the existing image to new image
+  <br> B. Onclick of the third button it once again
+  <br> C. Onclick of first button the first image should come back 
+  <br> 
+  <img src="https://cdn.pixabay.com/photo/2020/09/03/18/12/the-akashi-kaikyo-bridge-5542079_960_720.jpg" width="400" height="300" object-fit="cover" class="images"> 
+  <button onclick="bridgeView()">Bridge</button> 
+  <button onclick="spaceView()">SpaceViwe</button> 
+  <button onclick="riverView()">River</button> 
+  <script>
+    function bridgeView(){
+      const bridge= document.getElementsByClassName("images");
+      bridge[0].src= "https://cdn.pixabay.com/photo/2020/09/03/18/12/the-akashi-kaikyo-bridge-5542079_960_720.jpg";
+     
+    }
+    function spaceView(){
+      const space= document.getElementsByClassName("images");
+      space[0].src= "https://cdn.pixabay.com/photo/2020/02/28/21/15/space-4888643_960_720.jpg";
+    }
+    function riverView(){
+      const river= document.getElementsByClassName("images");
+      river[0].src= "https://cdn.pixabay.com/photo/2020/03/21/16/02/sunset-4954402_960_720.jpg";
+   
+    }
+  </script> 
+ </body>
+</htm

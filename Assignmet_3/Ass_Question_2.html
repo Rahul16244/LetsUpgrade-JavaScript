@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignemnt Day 6</title>
+    <style>
+      table {
+        text-align: center;
+        height: max-content;
+        width: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>
+      Create a array containing five objects with properties <br />
+      {name, age, city, salary}
+    </h1>
+    <p>
+      A. Display all the objects in a table <br />
+      B. Create a search functionality for name and city<br />
+      C. Delete button to delete records<br />
+      D. Data is not permanent
+    </p>
+    <div class="form">
+      <input
+        type="text"
+        class="searchname"
+        id="searchName"
+        onkeyup="searchByName()"
+        placeholder="Name Search"
+      />
+      <input
+        type="text"
+        class="searchcity"
+        id="searchCity"
+        onkeyup="searchByCity()"
+        placeholder="City Search"
+      />
+    </div>
+    <br />
+    <br />
+    <div>
+      <table border="1px" align="center" class="table" cellspacing="0">
+        <thead>
+          <tr>
+            <th class="srNo">Sr no</th>
+            <th class="name">Name</th>
+            <th class="age">Age</th>
+            <th class="city">City</th>
+            <th class="salary">Salary</th>
+            <th class="action">Action</th>
+          </tr>
+        </thead>
+        <tbody id="employes" class="employes"></tbody>
+      </table>
+    </div>
+    <script src="Ass_Question_2.js"></script>
+  </body>
+</html>

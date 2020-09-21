@@ -1,87 +1,95 @@
+let array = [];
 window.onload = function () {
-  let bus = [
-    {
-      name: "rahul",
-      source: "rahul",
-      designation: "rahul",
-      capacity: 5,
-    },
-  ];
-  if (localStorage.getItem("bus") == null) {
-    localStorage.setItem("bus", JSON.stringify(bus));
+  if (localStorage.getItem("array") == null) {
+    // console.log(array);
+    localStorage.setItem("array", JSON.stringify(array));
   }
 };
-function display(buss = undefined) {
-  let bus;
-  if (buss == undefined) {
-    bus = JSON.parse(localStorage.getItem("bus"));
+
+function display(arr = undefined) {
+  let array;
+  if (arr == undefined) {
+    array = JSON.parse(localStorage.getItem("array"));
+    // console.log(localStorage.getItem("array"));
   } else if (localStorage == undefined) {
-    localStorage.setItem("bus", JSON.stringify(bus));
-    bus = JSON.parse(localStorage.getItem("bus"));
+    localStorage.setItem("array", JSON.stringify(array));
+    array = JSON.parse(localStorage.getItem("array"));
   } else {
-    bus = buss;
+    array = arr;
   }
-  let tablebus = "";
-  if (buss != undefined) {
-    bus.forEach(function (busc, index) {
-      let busrow = `<tr>
-        <td>${index + 1}</td>
-        <td>${busc.name}</td>
-        <td>${busc.source}</td>
-        <td>${busc.designation}</td>
-        <td>${busc.passangerCapacity}</td>
-        </tr>`;
-      tablebus += busrow;
+  // console.log(array);
+  let data = "";
+  if (array != undefined) {
+    array.forEach(function (element, index) {
+      let temp = `<tr>
+            <td>${index + 1}</td>
+            <td>${element.name}</td>
+            <td>${element.source}</td>
+            <td>${element.destiny}</td>
+            <td>${element.busno}</td>
+            <td>${element.capacity}</td>
+            </tr>`;
+
+      data += temp;
     });
-    // document.write(bus[0]);
-    document.getElementById("busform").innerHTML = tablebus;
+    document.getElementsByClassName("body")[0].innerHTML = data;
   }
 }
 
 display();
 
-function searchBySource() {
-  let searchSource = document.getElementById("searchSource").value;
-  let employe = JSON.parse(localStorage.getItem("employe"));
-  let newdata = employe.filter(function (a) {
-    return a.name.toUpperCase().indexOf(searchSource.toUpperCase()) != -1;
-  });
-  display(newdata);
-}
-function searchByDesignation() {
-  let searchDesignation = document.getElementById("searchDesignation").value;
-  let employe = JSON.parse(localStorage.getItem("employe"));
-  let newcdata = employe.filter(function (b) {
-    return b.city.toUpperCase().indexOf(searchDesignation.toUpperCase()) != -1;
-  });
-  display(newcdata);
-}
-function addBus(e) {
-  if (localStorage.getItem("bus") == null) {
-    console.log(bus);
+function add(e) {
+  if (localStorage.getItem("array") == null) {
+    // console.log(array);
+    localStorage.setItem("array", JSON.stringify(array));
   }
 
   e.preventDefault();
-  let bustype = {};
-  let name = document.getElementById("name").value;
-  let source = document.getElementById("source").value;
-  let designation = document.getElementById("designation").value;
-  let number = document.getElementById("number").value;
-  let capacity = document.getElementById("capacity").value;
-  bustype.name = name;
-  bustype.source = source;
-  bustype.designation = designation;
-  bustype.number = number;
-  bustype.capacity = Number(capacity);
 
-  let bus = JSON.parse(localStorage.getItem("bus"));
-  console.log(bus);
-  // bus.push(bustype);
-  localStorage.setItem("bus", JSON.stringify(bustype));
+  let tempobject = {};
+  tempobject.name = document.getElementsByTagName("input")[2].value;
+  tempobject.source = document.getElementsByTagName("input")[3].value;
+  tempobject.destiny = document.getElementsByTagName("input")[4].value;
+  tempobject.busno = document.getElementsByTagName("input")[5].value;
+  tempobject.capacity = document.getElementsByTagName("input")[6].value;
+  // console.log(tempobject);
+  array = JSON.parse(localStorage.getItem("array"));
+
+  array.push(tempobject);
+  localStorage.setItem("array", JSON.stringify(array));
+
   display();
-  document.getElementById("name").value = "";
-  document.getElementById("source").value = "";
-  document.getElementById("designation").value = "";
-  document.getElementById("number").value = "";
-  document.getElementById("capacity").value = "";
+  location.reload();
+
+  document.getElementsByTagName("input")[2].value = "";
+  document.getElementsByTagName("input")[3].value = "";
+  document.getElementsByTagName("input")[4].value = "";
+  document.getElementsByTagName("input")[5].value = "";
+  document.getElementsByTagName("input")[6].value = "";
+}
+
+function searchSource() {
+  let source = document.getElementsByTagName("input")[0].value;
+
+  array = JSON.parse(localStorage.getItem("array"));
+  console.log(array, source);
+
+  let find = array.filter(function (element) {
+    return element.source.toUpperCase().indexOf(source.toUpperCase()) != -1;
+  });
+  // console.log(find);
+  display(find);
+}
+
+function searchDestiny() {
+  let destiny = document.getElementsByTagName("input")[1].value;
+
+  array = JSON.parse(localStorage.getItem("array"));
+  console.log(array, destiny);
+
+  let find = array.filter(function (element) {
+    return element.destiny.toUpperCase().indexOf(destiny.toUpperCase()) != -1;
+  });
+  // console.log(find);
+  display(find);
 }

@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <title>Question 2</title>
+
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assignemnt Day 6</title>
-    <style>
-      table {
-        text-align: center;
-        height: max-content;
-        width: 50%;
-      }
-    </style>
   </head>
 
   <body>
@@ -25,62 +19,57 @@
       C. Search by source and designation<br />
       D. Data should be stored permanently in localstorage<br />
     </p>
-    <div class="form">
-      <form onsubmit="addBus(event)">
-        <input type="text" required placeholder="Name" id="name" />
-        <input type="text" required placeholder="Source" id="source" />
-        <input
-          type="text"
-          required
-          placeholder="Designation"
-          id="designation"
-        />
-        <input type="text" required placeholder="Number" id="number" />
-        <input
-          type="number"
-          required
-          placeholder="Bus Capacity"
-          id="capacity"
-        />
-        <button type="submit">Add Bus</button>
-      </form>
-    </div>
-    <br />
-    <br />
+    <div class="left">
+      <div class="search">
+        <input type="text" placeholder="Search Source" />
+        <button onclick="searchSource()">Search</button>
+      </div>
 
-    <div class="form">
-      <input
-        type="text"
-        class="searchsource"
-        id="searchSource"
-        onkeyup="searchBySource()"
-        placeholder="Search Source"
-      />
-      <input
-        type="text"
-        class="searchdesignation"
-        id="searchDesignation"
-        onkeyup="searchByDesignation()"
-        placeholder="Search Designation"
-      />
+      <div class="search">
+        <input type="text" placeholder="Search Destination" />
+        <button onclick="searchDestiny()">Search</button>
+      </div>
+      <br />
+      <fieldset style="float: left">
+        <legend><b>Add Bus</b></legend>
+        <div>
+          <form style="margin-left: 30px" onsubmit="add(event)">
+            Name :
+            <input type="text" placeholder="Name Of The Bus" required /><br />
+            Source:
+            <input type="text" placeholder="Start Journey" required /><br />
+            Destination:
+            <input type="text" placeholder="End Journey" required /><br />
+            Bus Number :
+            <input type="text" placeholder="Number" required /><br />
+            Passenger Capacity:
+            <input type="number" placeholder="Capacity" required /><br />
+            <button
+              type="submit"
+              style="width: 100px; height: 30px; border: 3px solid"
+            >
+              Add</button
+            ><br /><br />
+          </form>
+        </div>
+      </fieldset>
     </div>
-    <br />
-    <br />
-    <div>
-      <table border="1px" align="center" class="table" cellspacing="0">
+    <div style="float: right; margin-right: 8.5%">
+      <table border="2" cellspacing="0">
         <thead>
-          <tr>
-            <th class="srNo">Sr no</th>
-            <th class="name">Name</th>
-            <th class="source">Source</th>
-            <th class="designation">Designation</th>
-            <th class="number">Number</th>
-            <th class="passangerCapacity">PassangerCapacity</th>
+          <tr class="head">
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Number</th>
+            <th>Passenger Capacity</th>
           </tr>
         </thead>
-        <tbody id="busform" class="busform"></tbody>
+        <tbody class="body"></tbody>
       </table>
     </div>
-    <script src="Ass_Question_2.js"></script>
+
+    <script type="text/javascript" src="Ass_Question_2.js"></script>
   </body>
 </html>
